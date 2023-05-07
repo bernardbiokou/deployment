@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: web-red
+
+  labels:
+
+    app: web-red
+
+spec:
+
+  replicas: 2
+
+  selector:
+
+    matchLabels:
+
+      app: web-red
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: web-red
+
+    spec:
+
+      containers:
+
+      - name: web-color-red
+
+        image: mmumshad/simple-webapp-color
+
+        ports:
+
+        - containerPort: 8080
+
+        env:
+
+          - name: APP_COLOR
+
+            value: red
